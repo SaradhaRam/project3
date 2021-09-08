@@ -25,7 +25,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-Pet = create_classes(db)
+Patient = create_classes(db)
 
 # create route that renders index.html template
 @app.route("/")
@@ -36,20 +36,35 @@ def home():
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():
-#     if request.method == "POST":
-#         name = request.form["petName"]
-#         lat = request.form["petLat"]
-#         lon = request.form["petLon"]
+    if request.method == "POST":
+        age = request.form["age"]
+        sex = request.form["sex"]
+        cp = request.form["cp"]
+        trestbps = request.form["restbpm"]
+        chol = request.form["chol"]
+        fbs = request.form["fbs"]
+        restecg = request.form["ecg"]
+        thalach = request.form["maxhr"]
+        exang = request.form["exang"]
+        oldpeak = request.form["oldpeak"]
+        slope = request.form["slope"]
+        ca = request.form["ca"]
 
-#         pet = Pet(name=name, lat=lat, lon=lon)
-#         db.session.add(pet)
-#         db.session.commit()
-#         return redirect("/", code=302)
+        patient = Patient(age=age, sex = sex, cp = cp,trestbps=trestbps,
+        chol=chol,fbs=fbs,restecg=restecg,thalach=thalach,exang=exang,oldpeak=oldpeak,slope=slope,ca=ca)
+        db.session.add(patient)
+        db.session.commit()
+        return redirect("/api/patients")
 
     return render_template("form.html")
 
 
+@app.route("/api/patients")
+def patients():
+    results = db.session.query(Patient.age).all()
+
+    return 'yoyoy'
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    
+    app.run()
