@@ -7,20 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Heart Disease</title>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
     <body>
         <div class="container">
@@ -30,54 +26,54 @@
             </div>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
-                    <form method="POST" action="/send" role="form", name="petform">
+                    <form action="http://localhost:5000/send" method="post" role="form" , name="petform">
                         <div class="form-group">
                             <label for="inputName">Age</label>
-                            <input type="text" class="form-control" id="inputName" name="petName" placeholder="Age">
+                            <input type="number" class="form-control" id="inputName" name="age" placeholder="Age">
                         </div>
                         <div class="form-group">
                             <label for="inputLat">Sex</label>
-                            <input type="text" class="form-control" id="inputLat" name="petLat" placeholder="Sex">
+                            <input type="number" class="form-control" id="inputLat" name="sex" placeholder="Sex">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Chest Pain</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="Chest Pain?">
+                            <input type="number" class="form-control" id="inputLon" name="cp" placeholder="Chest Pain?">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Resting BPM</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="Resting Beats Per Minute">
+                            <input type="number" class="form-control" id="inputLon" name="restbpm" placeholder="Resting Beats Per Minute">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Cholesterol</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="Cholestorol">
+                            <input type="number" class="form-control" id="inputLon" name="chol" placeholder="Cholestorol">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Fasting Blood Sugar</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="fbs">
+                            <input type="number" class="form-control" id="inputLon" name="fbs" placeholder="fbs">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">resting electrocardiographic results</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="restecg">
+                            <input type="number" class="form-control" id="inputLon" name="ecg" placeholder="restecg">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Max Heart rate</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="Maximum Heart Rate">
+                            <input type="number" class="form-control" id="inputLon" name="maxhr" placeholder="Maximum Heart Rate">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">exercise induced angina</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="exercise induced angina">
+                            <input type="number" class="form-control" id="inputLon" name="exang" placeholder="exercise induced angina">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Old Peak</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="oldpeak">
+                            <input type="number" class="form-control" id="inputLon" name="oldpeak" placeholder="oldpeak">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">Slope</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="the slope of the peak exercise ST segment">
+                            <input type="number" class="form-control" id="inputLon" name="slope" placeholder="the slope of the peak exercise ST segment">
                         </div>
                         <div class="form-group">
                             <label for="inputLon">CA</label>
-                            <input type="text" class="form-control" id="inputLon" name="petLon" placeholder="number of major vessels (0-3) colored by flourosopy">
+                            <input type="number" class="form-control" id="inputLon" name="ca" placeholder="number of major vessels (0-3) colored by flourosopy">
                         </div>
                         <input type="submit" value="submit" class="btn btn-default">
                     </form>
