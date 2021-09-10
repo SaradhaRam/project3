@@ -1,9 +1,12 @@
 # import necessary libraries
+from json import load
 from models import create_classes
 import os
 import sqlite3
 from flask import Flask, redirect, render_template,url_for, request
-
+from tensorflow.keras.models import load_model
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler
+import numpy as np
 # from flask import (
 #     Flask,
 #     render_template,
@@ -12,11 +15,14 @@ from flask import Flask, redirect, render_template,url_for, request
 #     redirect,
 #     url_for)
 
+
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
 
+
+model = load_model('heart_prediction_model.h5')
 #################################################
 # Database Setup
 #################################################
@@ -64,8 +70,32 @@ def send():
           # call the method to store the data in database(sqlite)
         store_patient(age, sex, cp, trestbps,chol, fbs, restecg, thalach, exang, oldpeak, slope, ca)
 
+        x = np.zeros( (1,12) )
+        
+        x[0,0] = age
+        x[0,1] = sex
+        x[0,2] = cp
+        x[0,3] = trestbps
+        x[0,4] = chol
+        x[0,5] = fbs
+        x[0,6] = restecg
+        x[0,7] = thalach
+        x[0,8] = exang
+        x[0,9] = oldpeak
+        x[0,10] = slope
+        x[0,11] = ca
+        # pred = model.predict(x)
+        predict_classes = model.predict_classes(x)
+        print(predict_classes)
+        if predict_classes == 1:
+            disease_type = 'Absent'
+        elif predict_classes == 2:
+            disease_type = 'a Fixed Defect'
+        elif predict_classes == 3:
+            disease_type = 'a Reversable Defect'
+        print(disease_type)
         # return redirect(url_for('patients'))
-        return redirect('/api/patients')
+        return redirect(url_for('patients', disease_type= disease_type))
     return render_template('form.html')
         # return redirect(url_for('/'))
    
@@ -74,13 +104,10 @@ def send():
         # return render_template("form.html")
 
 
-@app.route("/api/patients")
-def patients():
-    print("inside route /api/patients")
-    # results = db.session.query(Patient.age).all()
-    
+@app.route("/patients/<disease_type>")
+def patients(disease_type):
 
-    return 'yoyoy'
+    return render_template('disease.html', disease_type = disease_type)
 
 
 
@@ -88,7 +115,9 @@ def patients():
 
 def store_patient(age, sex, cp, trestbps,chol, fbs, restecg, thalach, exang, oldpeak, slope, ca):
     print("hello")
-    connection = sqlite3.connect("C:/Users/vijay/Documents/Saradha_R/project3/project3/deploy/app.db") 
+    working_directory = os.getcwd() + '/'+'app.db'
+    connection = sqlite3.connect(working_directory)
+    # connection = sqlite3.connect("C:/Users/vijay/Documents/Saradha_R/project3/project3/deploy/app.db") 
     connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
 
