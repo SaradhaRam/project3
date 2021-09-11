@@ -1,4 +1,4 @@
-from cfoodheartdisease.app import db
+from hrrtdisease.app import db
 
 # db.drop_all()
 db.create_all()
