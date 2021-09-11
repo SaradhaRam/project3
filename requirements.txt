@@ -5,4 +5,4 @@ gunicorn==20.1.0
 Jinja2==3.0.1
 MarkupSafe==2.0.1
 SQLAlchemy==1.4.23
-https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
+tensorflow==1.0.0
