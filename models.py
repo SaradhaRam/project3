@@ -1,12 +1,20 @@
 def create_classes(db):
-    class Pet(db.Model):
-        __tablename__ = 'pets'
+    class Patient(db.Model):
+        __tablename__ = 'patients'
 
         id = db.Column(db.Integer, primary_key=True)
-        name = db.Column(db.String(64))
-        lat = db.Column(db.Float)
-        lon = db.Column(db.Float)
-
+        sex = db.Column(db.Integer)
+        sex = db.Column(db.Integer)
+        cp =db.Column(db.Integer)
+        trestbps =db.Column(db.Integer)
+        chol = db.Column(db.Integer)
+        fbs = db.Column(db.Integer)
+        restecg =db.Column(db.Integer)
+        thalach = db.Column(db.Integer)
+        exang = db.Column(db.Integer)
+        oldpeak = db.Column(db.Float)
+        slope = db.Column(db.Integer)
+        ca = db.Column(db.Integer)
         def __repr__(self):
-            return '<Pet %r>' % (self.name)
-    return Pet
+            return '<Patient %r>' % (self.name)
+    return Patient
