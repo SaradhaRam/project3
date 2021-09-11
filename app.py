@@ -68,7 +68,7 @@ def send():
         # db.session.commit()
 
           # call the method to store the data in database(sqlite)
-        store_patient(age, sex, cp, trestbps,chol, fbs, restecg, thalach, exang, oldpeak, slope, ca)
+        # store_patient(age, sex, cp, trestbps,chol, fbs, restecg, thalach, exang, oldpeak, slope, ca)
 
         x = np.zeros( (1,12) )
         
