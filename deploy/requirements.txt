@@ -27,7 +27,6 @@ crayons==0.4.0
 cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1616851514507/work
 cycler==0.10.0
 Cython @ file:///opt/concourse/worker/volumes/live/2ca4530d-b024-41e5-782d-a93b4e7bf8a8/volume/cython_1626256968955/work
-dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1615224146321/work
 decorator @ file:///tmp/build/80754af9/decorator_1617916966915/work
 defusedxml @ file:///home/conda/feedstock_root/build_artifacts/defusedxml_1615232257335/work
 deprecation @ file:///home/conda/feedstock_root/build_artifacts/deprecation_1589881437857/work
